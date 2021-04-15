@@ -5,17 +5,23 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
+using GameService.Api.Validators;
+using GameService.Core.Exceptions;
+using GameService.Core.Models;
 
 namespace GameService.Api.Handlers
 {
     public class GameRequestHandler : IRequestHandler<GameRequest, GameResponse>
     {
         private readonly IEmulateGameService _emulateGameService;
+        private readonly IMapper _mapper;
         private readonly ILogger<GameRequestHandler> _logger;
 
-        public GameRequestHandler(IEmulateGameService emulateGameService, ILogger<GameRequestHandler> logger)
+        public GameRequestHandler(IEmulateGameService emulateGameService, IMapper mapper, ILogger<GameRequestHandler> logger)
         {
             _emulateGameService = emulateGameService ?? throw new ArgumentNullException(nameof(emulateGameService));
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -23,14 +29,26 @@ namespace GameService.Api.Handlers
         {
             try
             {
-                var isReadyToChange = request != null && request.ReadyToChangeDoor;
-
-                if (request != null)
+                var validator = new GameRequestValidator().Validate(request);
+                if (!validator.IsValid)
                 {
-                    var wins = await PlayGames(isReadyToChange, request.NumberOfSimulations);
-                    return new GameResponse { 
-                        NumberOfSimulations = request.NumberOfSimulations, 
-                        NumberOfWin = wins, 
+                    _logger.LogError("Validation failed");
+                    throw new ValidationException();
+                }
+
+                var gameRequestSpecification = _mapper.Map<GameRequestSpecification>(request);
+
+                var isReadyToChange = gameRequestSpecification != null && gameRequestSpecification.ReadyToChangeDoor;
+                
+                if (gameRequestSpecification != null)
+                {
+                    var wins = await PlayGames(
+                        isReadyToChange,
+                        gameRequestSpecification.NumberOfSimulations);
+                    return new GameResponse
+                    {
+                        NumberOfSimulations = request.NumberOfSimulations,
+                        NumberOfWin = wins,
                         NumberOfLose = request.NumberOfSimulations - wins
                     };
                 }

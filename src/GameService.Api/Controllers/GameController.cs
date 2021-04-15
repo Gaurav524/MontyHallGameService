@@ -24,7 +24,7 @@ namespace GameService.Api.Controllers
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
-        [HttpPost("Wins")]
+        [HttpPost("wins")]
         [ProducesResponseType(typeof(GameResponse), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<List<GameResponse>>> GetWins(
             [FromBody] GameRequest gameRequest)

@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameService.Api", "src\GameService.Api\GameService.Api.csproj", "{48EDE6C2-D602-422D-BB4E-76D5C630AE50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameService.Api", "src\GameService.Api\GameService.Api.csproj", "{48EDE6C2-D602-422D-BB4E-76D5C630AE50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameService.Application", "src\GameService.Application\GameService.Application.csproj", "{86CF3DF6-0466-465E-847D-2A8916612EDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameService.Application", "src\GameService.Application\GameService.Application.csproj", "{86CF3DF6-0466-465E-847D-2A8916612EDF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameService.Core", "src\GameService.Core\GameService.Core.csproj", "{0AB8F991-FE08-4048-8B96-C1BC3D5A5B84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameService.Core", "src\GameService.Core\GameService.Core.csproj", "{0AB8F991-FE08-4048-8B96-C1BC3D5A5B84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameService.Infrastructure", "src\GameService.Infrastructure\GameService.Infrastructure.csproj", "{69E0FDEA-7FBC-4C33-AFEE-EDE05BA65B4A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameService.Infrastructure", "src\GameService.Infrastructure\GameService.Infrastructure.csproj", "{69E0FDEA-7FBC-4C33-AFEE-EDE05BA65B4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2339F464-EE59-451D-A9F0-E1B4A3996070}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
