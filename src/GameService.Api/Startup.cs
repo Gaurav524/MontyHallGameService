@@ -11,7 +11,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using GameService.Core.Interfaces;
 using MediatR;
+using GameService.Application.Services;
 
 namespace GameService.Api
 {
@@ -34,6 +36,8 @@ namespace GameService.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GameService.Api", Version = "v1" });
             });
+
+            services.AddScoped<IEmulateGameService, EmulateGameService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

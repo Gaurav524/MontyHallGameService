@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GameService.Application\GameService.Application.csproj" />
     <ProjectReference Include="..\GameService.Core\GameService.Core.csproj" />
   </ItemGroup>
 
