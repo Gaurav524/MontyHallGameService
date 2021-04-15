@@ -9,7 +9,9 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
+using MediatR;
 
 namespace GameService.Api
 {
@@ -27,6 +29,7 @@ namespace GameService.Api
         {
 
             services.AddControllers();
+            services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GameService.Api", Version = "v1" });
