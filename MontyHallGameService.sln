@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameService.Infrastructure"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2339F464-EE59-451D-A9F0-E1B4A3996070}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{83E20C14-571A-479B-81ED-2CC8A50DE436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameService.Api.UnitTest", "test\GameService.Api.UnitTest\GameService.Api.UnitTest.csproj", "{A5D98929-80D8-4529-82E0-16A59C216CB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,9 +39,20 @@ Global
 		{69E0FDEA-7FBC-4C33-AFEE-EDE05BA65B4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69E0FDEA-7FBC-4C33-AFEE-EDE05BA65B4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69E0FDEA-7FBC-4C33-AFEE-EDE05BA65B4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A5D98929-80D8-4529-82E0-16A59C216CB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5D98929-80D8-4529-82E0-16A59C216CB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5D98929-80D8-4529-82E0-16A59C216CB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5D98929-80D8-4529-82E0-16A59C216CB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{48EDE6C2-D602-422D-BB4E-76D5C630AE50} = {2339F464-EE59-451D-A9F0-E1B4A3996070}
+		{86CF3DF6-0466-465E-847D-2A8916612EDF} = {2339F464-EE59-451D-A9F0-E1B4A3996070}
+		{0AB8F991-FE08-4048-8B96-C1BC3D5A5B84} = {2339F464-EE59-451D-A9F0-E1B4A3996070}
+		{69E0FDEA-7FBC-4C33-AFEE-EDE05BA65B4A} = {2339F464-EE59-451D-A9F0-E1B4A3996070}
+		{A5D98929-80D8-4529-82E0-16A59C216CB1} = {83E20C14-571A-479B-81ED-2CC8A50DE436}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {523F9D61-5AED-4BA2-B3A5-67D6AEE25009}
