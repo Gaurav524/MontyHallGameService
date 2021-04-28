@@ -21,7 +21,7 @@ namespace GameService.Application.Services
             var selectedChoice = options[selection];
             var randomlyDisplayedDoor = randomNumber.Next(0, 2);
 
-            var displayedChoice = DisplayedChoiceToPlayer(options, randomlyDisplayedDoor);
+            var displayedChoice = await DisplayedChoiceToPlayer(options, randomlyDisplayedDoor);
             options.Remove(displayedChoice);
 
             if (isReadyToChange)
@@ -34,7 +34,7 @@ namespace GameService.Application.Services
             return selectedChoice != null && selectedChoice.IsCar;
         }
 
-        private static Option DisplayedChoiceToPlayer(IEnumerable<Option> options, int randomlyDisplayedDoor)
+        private async Task<Option> DisplayedChoiceToPlayer(IEnumerable<Option> options, int randomlyDisplayedDoor)
         {
             var choicesToShow = options.Where(x => !x.IsSelected && !x.IsCar).ToList();
             var displayedChoice = choicesToShow.ElementAt(choicesToShow.Count() == 1 ? 0 : randomlyDisplayedDoor);

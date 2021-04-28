@@ -38,20 +38,23 @@ namespace GameService.Api.Handlers
 
                 var gameRequestSpecification = _mapper.Map<GameRequestSpecification>(request);
 
-                var isReadyToChange = gameRequestSpecification != null && gameRequestSpecification.ReadyToChangeDoor;
-                
-                if (gameRequestSpecification != null)
+                var isReadyToChange = gameRequestSpecification.ReadyToChangeDoor;
+
+                var wins = await PlayGames(
+                    isReadyToChange,
+                    gameRequestSpecification.NumberOfSimulations);
+                return new GameResponse
                 {
-                    var wins = await PlayGames(
-                        isReadyToChange,
-                        gameRequestSpecification.NumberOfSimulations);
-                    return new GameResponse
-                    {
-                        NumberOfSimulations = request.NumberOfSimulations,
-                        NumberOfWin = wins,
-                        NumberOfLose = request.NumberOfSimulations - wins
-                    };
-                }
+                    NumberOfSimulations = request.NumberOfSimulations,
+                    NumberOfWin = wins,
+                    NumberOfLose = request.NumberOfSimulations - wins
+                };
+
+            }
+            catch (ValidationException ex)
+            {
+                //something special to validation exception
+                _logger.LogError(ex.ToString());
             }
             catch (Exception ex)
             {
