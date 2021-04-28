@@ -1,16 +1,12 @@
-﻿using GameService.Api.Handlers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
+﻿using AutoMapper;
 using FluentAssertions;
 using GameService.Api.Contracts;
+using GameService.Api.Handlers;
 using GameService.Core.Interfaces;
 using GameService.Core.Models;
 using Microsoft.Extensions.Logging;
 using Moq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace GameService.Api.UnitTest

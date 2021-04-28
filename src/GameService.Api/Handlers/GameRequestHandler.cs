@@ -18,7 +18,10 @@ namespace GameService.Api.Handlers
         private readonly IMapper _mapper;
         private readonly ILogger<GameRequestHandler> _logger;
 
-        public GameRequestHandler(IEmulateGameService emulateGameService, IMapper mapper, ILogger<GameRequestHandler> logger)
+        public GameRequestHandler(
+            IEmulateGameService emulateGameService, 
+            IMapper mapper, 
+            ILogger<GameRequestHandler> logger)
         {
             _emulateGameService = emulateGameService ?? throw new ArgumentNullException(nameof(emulateGameService));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
