@@ -9,9 +9,9 @@ namespace GameService.Api.Contracts
     {
         public int NumberOfSimulations { get; set; }
 
-        public int NumberOfWin { get; set; } = 0;
+        public int NumberOfWin { get; set; }
 
-        public int NumberOfLose { get; set; } = 0;
+        public int NumberOfLose { get; set; }
 
         public GameResponse()
         {
