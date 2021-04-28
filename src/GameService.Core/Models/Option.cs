@@ -2,7 +2,7 @@
 {
     public class Option
     {
-        public bool IsCar = false;
-        public bool IsSelected = false;
+        public bool IsCar;
+        public bool IsSelected;
     }
 }
